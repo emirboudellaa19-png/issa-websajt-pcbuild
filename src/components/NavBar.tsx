@@ -1,17 +1,18 @@
 import { Menu, ChevronRight, Monitor, Gamepad2, Laptop, Smartphone, Tv, Fan, Bike, Refrigerator, LayoutGrid } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const categories = [
-  { icon: Monitor, label: "Računari i komponente" },
-  { icon: Monitor, label: "Oprema za računare" },
-  { icon: Gamepad2, label: "Gaming i oprema" },
-  { icon: Laptop, label: "Laptopi i tableti" },
-  { icon: Smartphone, label: "Mobiteli i pametni satovi" },
-  { icon: Tv, label: "Televizori i audio" },
-  { icon: Fan, label: "Hlađenje i grijanje" },
-  { icon: Bike, label: "Sport i putovanje" },
-  { icon: Refrigerator, label: "Kućanski aparati" },
-  { icon: LayoutGrid, label: "Ostale kategorije" },
+  { icon: Monitor, label: "Računari i komponente", slug: "racunari-i-komponente" },
+  { icon: Monitor, label: "Oprema za računare", slug: "oprema-za-racunare" },
+  { icon: Gamepad2, label: "Gaming i oprema", slug: "gaming-i-oprema" },
+  { icon: Laptop, label: "Laptopi i tableti", slug: "laptopi-i-tableti" },
+  { icon: Smartphone, label: "Mobiteli i pametni satovi", slug: "mobiteli-i-pametni-satovi" },
+  { icon: Tv, label: "Televizori i audio", slug: "televizori-i-audio" },
+  { icon: Fan, label: "Hlađenje i grijanje", slug: "hladjenje-i-grijanje" },
+  { icon: Bike, label: "Sport i putovanje", slug: "sport-i-putovanje" },
+  { icon: Refrigerator, label: "Kućanski aparati", slug: "kucanski-aparati" },
+  { icon: LayoutGrid, label: "Ostale kategorije", slug: "ostale-kategorije" },
 ];
 
 const navLinks = [
@@ -44,15 +45,15 @@ const NavBar = () => {
           {showCategories && (
             <div className="absolute top-full left-0 w-[280px] bg-background shadow-lg border z-50">
               {categories.map((cat) => (
-                <a
+                <Link
                   key={cat.label}
-                  href="#"
+                  to={`/category/${cat.slug}`}
                   className="flex items-center gap-3 px-4 py-3 text-sm text-foreground hover:bg-muted transition-colors border-b border-border/50"
                 >
                   <cat.icon className="w-5 h-5 text-muted-foreground" />
                   <span className="flex-1">{cat.label}</span>
                   <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                </a>
+                </Link>
               ))}
             </div>
           )}

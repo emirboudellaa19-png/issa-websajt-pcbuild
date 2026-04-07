@@ -1,16 +1,17 @@
 import { Search, Phone, User, ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="bg-background py-4">
       <div className="container flex items-center gap-6">
         {/* Logo */}
-        <a href="/" className="flex-shrink-0">
+        <Link to="/" className="flex-shrink-0">
           <span className="text-3xl font-black tracking-tight">
-            <span className="text-primary">pro</span>
-            <span className="text-foreground">comp</span>
+            <span className="text-primary">ISSA</span>
+            <span className="text-foreground"> WEBSAJT</span>
           </span>
-        </a>
+        </Link>
 
         {/* Search */}
         <div className="flex-1 max-w-xl mx-auto">
