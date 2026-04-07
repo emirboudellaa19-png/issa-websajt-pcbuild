@@ -6,6 +6,7 @@ interface ProductCardProps {
   oldPrice?: number;
   discount?: string;
   image?: string;
+  description?: string;
 }
 
 const ProductCard = ({ name, price, oldPrice, discount }: ProductCardProps) => {
