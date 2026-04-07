@@ -1,16 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import TopBar from "@/components/TopBar";
+import Header from "@/components/Header";
+import NavBar from "@/components/NavBar";
+import HeroBanner from "@/components/HeroBanner";
+import FeatureBar from "@/components/FeatureBar";
+import TopCategories from "@/components/TopCategories";
+import ProductsSection from "@/components/ProductsSection";
+import Footer from "@/components/Footer";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen flex flex-col">
+      <TopBar />
+      <Header />
+      <NavBar />
+      <main className="flex-1">
+        <div className="container mt-0">
+          <div className="flex gap-0">
+            {/* Sidebar space reserved by NavBar category dropdown */}
+            <div className="hidden lg:block w-[280px] flex-shrink-0" />
+            {/* Hero */}
+            <div className="flex-1 min-w-0">
+              <HeroBanner />
+            </div>
+          </div>
+        </div>
+        <FeatureBar />
+        <TopCategories />
+        <ProductsSection />
+      </main>
+      <Footer />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
