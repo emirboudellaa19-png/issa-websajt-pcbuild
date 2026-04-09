@@ -51,6 +51,7 @@ const Category = () => {
                   oldPrice={product.oldPrice}
                   discount={product.discount}
                   description={product.description}
+                  slug={product.slug}
                 />
               </Link>
             ))}

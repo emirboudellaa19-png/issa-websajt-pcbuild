@@ -22,7 +22,7 @@ const ProductsSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {products.map((product) => (
             <Link key={product.name} to={`/product/${product.slug}`}>
-              <ProductCard name={product.name} price={product.price} oldPrice={product.oldPrice} discount={product.discount} />
+              <ProductCard name={product.name} price={product.price} oldPrice={product.oldPrice} discount={product.discount} slug={product.slug} />
             </Link>
           ))}
         </div>
