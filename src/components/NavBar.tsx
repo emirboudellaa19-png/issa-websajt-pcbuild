@@ -16,6 +16,7 @@ const categories = [
 ];
 
 const navLinks = [
+  { label: "Početna", path: "/" },
   { label: "Akcije u toku", path: "/akcije" },
   { label: "Kupovina na rate", path: "/kupovina-na-rate" },
   { label: "Zatražite ponudu", path: "/zatrazite-ponudu" },
