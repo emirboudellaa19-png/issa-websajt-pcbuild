@@ -62,13 +62,13 @@ const NavBar = () => {
         {/* Nav links */}
         <nav className="hidden lg:flex items-center">
           {navLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
+            <Link
+              key={link.label}
+              to={link.path}
               className="text-nav-foreground text-sm font-medium px-4 py-3 hover:bg-primary-foreground/10 transition-colors whitespace-nowrap"
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           ))}
         </nav>
       </div>

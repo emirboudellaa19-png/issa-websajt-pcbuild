@@ -28,7 +28,14 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/category/:slug" element={<Category />} />
           <Route path="/product/:slug" element={<Product />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/akcije" element={<Akcije />} />
+          <Route path="/kupovina-na-rate" element={<KupovinaNaRate />} />
+          <Route path="/zatrazite-ponudu" element={<ZatrazitePonudu />} />
+          <Route path="/usluge" element={<Usluge />} />
+          <Route path="/rasprodaja" element={<Rasprodaja />} />
+          <Route path="/nacini-placanja" element={<NaciniPlacanja />} />
+          <Route path="/dostava" element={<Dostava />} />
+          <Route path="/kontakt" element={<Kontakt />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
