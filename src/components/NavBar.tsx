@@ -1,4 +1,4 @@
-import { Menu, ChevronRight, Monitor, Gamepad2, Laptop, Smartphone, Tv, Fan, Bike, Refrigerator, LayoutGrid } from "lucide-react";
+import { Menu, ChevronRight, Monitor, Gamepad2, Laptop, Smartphone, Tv, Fan, Bike, Refrigerator, LayoutGrid, Home } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
