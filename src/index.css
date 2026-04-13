@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 15%;
 
-    --primary: 0 78% 50%;
+    --primary: 217 91% 50%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;
@@ -32,17 +32,17 @@
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 0 78% 50%;
+    --ring: 217 91% 50%;
 
     --radius: 0.375rem;
 
     --topbar: 0 0% 97%;
     --topbar-foreground: 0 0% 40%;
-    --nav: 0 78% 50%;
+    --nav: 217 91% 50%;
     --nav-foreground: 0 0% 100%;
-    --badge-sale: 0 78% 50%;
+    --badge-sale: 217 91% 50%;
     --price-old: 0 0% 55%;
-    --price-new: 0 78% 50%;
+    --price-new: 217 91% 50%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
