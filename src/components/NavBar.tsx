@@ -16,14 +16,14 @@ const categories = [
 ];
 
 const navLinks = [
-  "Akcije u toku",
-  "Kupovina na rate",
-  "Zatražite ponudu",
-  "Usluge",
-  "Rasprodaja",
-  "Načini plaćanja",
-  "Dostava",
-  "Kontakt",
+  { label: "Akcije u toku", path: "/akcije" },
+  { label: "Kupovina na rate", path: "/kupovina-na-rate" },
+  { label: "Zatražite ponudu", path: "/zatrazite-ponudu" },
+  { label: "Usluge", path: "/usluge" },
+  { label: "Rasprodaja", path: "/rasprodaja" },
+  { label: "Načini plaćanja", path: "/nacini-placanja" },
+  { label: "Dostava", path: "/dostava" },
+  { label: "Kontakt", path: "/kontakt" },
 ];
 
 const NavBar = () => {
