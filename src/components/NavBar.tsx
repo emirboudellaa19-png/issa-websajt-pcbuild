@@ -27,7 +27,7 @@ const navLinks = [
 ];
 
 const NavBar = () => {
-  const [showCategories, setShowCategories] = useState(true);
+  const [showCategories, setShowCategories] = useState(false);
 
   return (
     <div className="bg-nav">
