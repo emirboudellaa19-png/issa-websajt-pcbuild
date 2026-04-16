@@ -8,8 +8,8 @@ const Header = () => {
         {/* Logo */}
         <Link to="/" className="flex-shrink-0">
           <span className="text-3xl font-black tracking-tight">
-            <span className="text-primary">ISSA</span>
-            <span className="text-foreground"> WEBSAJT</span>
+            <span className="text-primary">TECHNO</span>
+            <span className="text-foreground">-GEAR</span>
           </span>
         </Link>
 

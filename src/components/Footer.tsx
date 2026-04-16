@@ -9,8 +9,8 @@ const Footer = () => {
           {/* About */}
           <div>
             <h3 className="text-xl font-black mb-4">
-              <span className="text-primary">ISSA</span>
-              <span className="text-background"> WEBSAJT</span>
+              <span className="text-primary">TECHNO</span>
+              <span className="text-background">-GEAR</span>
             </h3>
             <p className="text-sm leading-relaxed text-background/60">
               Vaš centar za tehniku! Nudimo širok asortiman računarske opreme, gaming periferija, mobilnih uređaja i kućanskih aparata.
@@ -81,7 +81,7 @@ const Footer = () => {
       </div>
       <div className="border-t border-background/10 py-4">
         <div className="container text-center text-xs text-background/40">
-          © 2024 ISSA WEBSAJT. Sva prava zadržana.
+          © 2024 TECHNO-GEAR. Sva prava zadržana.
         </div>
       </div>
     </footer>
