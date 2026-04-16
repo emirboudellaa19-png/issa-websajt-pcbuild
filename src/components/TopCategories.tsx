@@ -24,30 +24,53 @@ const TopCategories = () => {
   return (
     <section className="py-10">
       <div className="container">
-        <h2 className="text-2xl font-bold text-center mb-8 uppercase tracking-wide">
-          Top Kategorije
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="flex-1 h-px bg-border" />
+          <h2 className="text-2xl font-bold text-center uppercase tracking-wide">
+            Top Kategorije
+          </h2>
+          <div className="flex-1 h-px bg-border" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {categories.map((cat) => (
             <Link
               key={cat.label}
               to={`/category/${cat.slug}`}
-              className={`group bg-gradient-to-br ${cat.color} rounded-lg p-4 flex flex-col items-center gap-3 hover:shadow-md transition-all duration-300 border border-border/50`}
+              className="group relative bg-muted/50 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-border/50"
             >
-              <div className="w-28 h-28 flex items-center justify-center">
-                <img
-                  src={cat.image}
-                  alt={cat.label}
-                  loading="lazy"
-                  width={112}
-                  height={112}
-                  className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300"
-                />
+              {/* Card content */}
+              <div className="relative flex items-center min-h-[200px] md:min-h-[180px] p-5">
+                {/* Text side */}
+                <div className="flex flex-col gap-3 z-10 flex-1">
+                  <h3 className="text-xl md:text-lg font-extrabold leading-tight">
+                    <span className="text-foreground">{cat.label.split(' ')[0]}</span>
+                    {cat.label.split(' ').length > 1 && (
+                      <>
+                        <br />
+                        <span className="text-primary">{cat.label.split(' ').slice(1).join(' ')}</span>
+                      </>
+                    )}
+                  </h3>
+                  <span className="text-xs font-semibold border border-primary text-primary rounded-full px-3 py-1 w-fit group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    Saznaj više
+                  </span>
+                </div>
+                {/* Image side */}
+                <div className="w-[45%] flex-shrink-0 flex items-center justify-center">
+                  <img
+                    src={cat.image}
+                    alt={cat.label}
+                    loading="lazy"
+                    width={160}
+                    height={160}
+                    className="object-contain w-full h-auto max-h-[170px] group-hover:scale-105 transition-transform duration-300 drop-shadow-lg"
+                  />
+                </div>
               </div>
-              <span className="text-sm font-semibold text-center">{cat.label}</span>
-              <span className="text-xs text-primary font-medium border border-primary rounded px-2 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                Saznaj više
-              </span>
+              {/* Category name below */}
+              <div className="text-center py-2 border-t border-border/30">
+                <span className="text-sm font-semibold">{cat.label}</span>
+              </div>
             </Link>
           ))}
         </div>
