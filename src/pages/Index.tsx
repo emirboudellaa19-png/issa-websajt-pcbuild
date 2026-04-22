@@ -24,7 +24,9 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <FeatureBar />
+        <div className="mt-12">
+          <FeatureBar />
+        </div>
         <TopCategories />
         <ProductsSection />
       </main>

@@ -1,18 +1,23 @@
-import { Menu, ChevronRight, Monitor, Gamepad2, Laptop, Smartphone, Tv, Fan, Bike, Refrigerator, LayoutGrid, Home } from "lucide-react";
+import { Menu, ChevronRight, Monitor, Gamepad2, Laptop, Smartphone, Tv, Fan, Bike, Refrigerator, LayoutGrid } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const categories = [
-  { icon: Monitor, label: "Računari i komponente", slug: "racunari-i-komponente" },
-  { icon: Monitor, label: "Oprema za računare", slug: "oprema-za-racunare" },
-  { icon: Gamepad2, label: "Gaming i oprema", slug: "gaming-i-oprema" },
-  { icon: Laptop, label: "Laptopi i tableti", slug: "laptopi-i-tableti" },
-  { icon: Smartphone, label: "Mobiteli i pametni satovi", slug: "mobiteli-i-pametni-satovi" },
-  { icon: Tv, label: "Televizori i audio", slug: "televizori-i-audio" },
-  { icon: Fan, label: "Hlađenje i grijanje", slug: "hladjenje-i-grijanje" },
-  { icon: Bike, label: "Sport i putovanje", slug: "sport-i-putovanje" },
-  { icon: Refrigerator, label: "Kućanski aparati", slug: "kucanski-aparati" },
-  { icon: LayoutGrid, label: "Ostale kategorije", slug: "ostale-kategorije" },
+  {
+    icon: Monitor,
+    label: "Računari i komponente",
+    slug: "racunari-i-komponente",
+    sub: ["Desktop računari", "Gaming računari", "Brand name računari", "All-in-One računari", "Radne stanice", "Računarske komponente", "Serveri", "Windows i Office licence", "Antivirusna zaštita"],
+  },
+  { icon: Monitor, label: "Oprema za računare", slug: "oprema-za-racunare", sub: ["Tastature", "Miševi", "Slušalice", "Web kamere", "Podloge za miš", "USB hubovi"] },
+  { icon: Gamepad2, label: "Gaming i oprema", slug: "gaming-i-oprema", sub: ["Gaming stolice", "Kontroleri", "VR oprema", "Gaming monitori"] },
+  { icon: Laptop, label: "Laptopi i tableti", slug: "laptopi-i-tableti", sub: ["Laptopi", "Gaming laptopi", "Tableti", "Torbe i ruksaci"] },
+  { icon: Smartphone, label: "Mobiteli i pametni satovi", slug: "mobiteli-i-pametni-satovi", sub: ["Mobiteli", "Pametni satovi", "Maske i folije", "Punjači"] },
+  { icon: Tv, label: "Televizori i audio", slug: "televizori-i-audio", sub: ["Televizori", "Soundbar", "Zvučnici", "Projektori"] },
+  { icon: Fan, label: "Hlađenje i grijanje", slug: "hladjenje-i-grijanje", sub: ["Klima uređaji", "Ventilatori", "Grijalice"] },
+  { icon: Bike, label: "Sport i putovanje", slug: "sport-i-putovanje", sub: ["Bicikli", "Trotineti", "Oprema za putovanje"] },
+  { icon: Refrigerator, label: "Kućanski aparati", slug: "kucanski-aparati", sub: ["Frižideri", "Veš mašine", "Mali kućanski aparati"] },
+  { icon: LayoutGrid, label: "Ostale kategorije", slug: "ostale-kategorije", sub: ["Razno"] },
 ];
 
 const navLinks = [
@@ -28,7 +33,10 @@ const navLinks = [
 ];
 
 const NavBar = () => {
-  const [showCategories, setShowCategories] = useState(false);
+  const [showCategories, setShowCategories] = useState(true);
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
+
+  const activeCategory = categories.find((c) => c.slug === hoveredCategory);
 
   return (
     <div className="bg-nav">
@@ -37,25 +45,53 @@ const NavBar = () => {
         <div className="relative">
           <button
             onClick={() => setShowCategories(!showCategories)}
-            className="flex items-center gap-2 bg-primary text-primary-foreground font-medium px-5 py-3 hover:bg-primary/90 transition-colors min-w-[250px]"
+            className="flex items-center gap-2 bg-primary text-primary-foreground font-medium px-5 py-3 hover:bg-primary/90 transition-colors min-w-[280px]"
           >
             <Menu className="w-5 h-5" />
             <span>Sve Kategorije</span>
           </button>
 
           {showCategories && (
-            <div className="absolute top-full left-0 w-[280px] bg-background shadow-lg border z-50">
+            <div
+              className="absolute top-full left-0 w-[280px] bg-background shadow-lg border z-50"
+              onMouseLeave={() => setHoveredCategory(null)}
+            >
               {categories.map((cat) => (
-                <Link
+                <div
                   key={cat.label}
-                  to={`/category/${cat.slug}`}
-                  className="flex items-center gap-3 px-4 py-3 text-sm text-foreground hover:bg-muted transition-colors border-b border-border/50"
+                  onMouseEnter={() => setHoveredCategory(cat.slug)}
+                  className="relative"
                 >
-                  <cat.icon className="w-5 h-5 text-muted-foreground" />
-                  <span className="flex-1">{cat.label}</span>
-                  <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                </Link>
+                  <Link
+                    to={`/category/${cat.slug}`}
+                    className={`flex items-center gap-3 px-4 py-3 text-sm text-foreground transition-colors border-b border-border/50 ${
+                      hoveredCategory === cat.slug ? "bg-muted" : "hover:bg-muted"
+                    }`}
+                  >
+                    <cat.icon className="w-5 h-5 text-primary" />
+                    <span className="flex-1">{cat.label}</span>
+                    <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                  </Link>
+                </div>
               ))}
+
+              {/* Sub-category panel */}
+              {activeCategory && activeCategory.sub.length > 0 && (
+                <div
+                  className="absolute top-0 left-full w-[260px] bg-background shadow-lg border min-h-full z-50"
+                  onMouseEnter={() => setHoveredCategory(activeCategory.slug)}
+                >
+                  {activeCategory.sub.map((item) => (
+                    <Link
+                      key={item}
+                      to={`/category/${activeCategory.slug}`}
+                      className="block px-4 py-3 text-sm text-foreground hover:bg-muted hover:text-primary transition-colors border-b border-border/50"
+                    >
+                      {item}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
